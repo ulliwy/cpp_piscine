@@ -30,11 +30,11 @@ public:
 	Contact(void);
 	~Contact(void);
 
-	static int	getNbContacts();
+	void		print(int index) const;
+	void		print_info() const;
 
-// private:
-// 	static int	_nbContacts;
-	
+private:
+	std::string	_trunc(std::string name) const;
 };
 
 #endif
