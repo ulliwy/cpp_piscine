@@ -27,7 +27,7 @@ void 		Contact::print(int index) const {
 	std::cout << std::setw(10) << _trunc(this->nickname) << std::endl;
 }
 
-std::string		firstName;
+	std::string		firstName;
 	std::string		lastName;
 	std::string		nickname;
 	std::string		login;

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.class.hpp                                  :+:      :+:    :+:   */
+/*   Student.class.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iprokofy <iprokofy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,31 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_CLASS_H
-# define CONTACT_CLASS_H
+#include <iostream>
+#include <string>
 
-class Contact {
-public:
-	std::string		firstName;
-	std::string		lastName;
-	std::string		nickname;
-	std::string		login;
-	std::string		postalAddress;
-	std::string		email;
-	std::string		phone;
-	std::string		birthday;
-	std::string		favMeal;
-	std::string		underColor;
-	std::string		darkSecret;
-
-	Contact(void);
-	~Contact(void);
-
-	void			print(int index) const;
-	void			print_info() const;
-
+class Student {
 private:
-	std::string		_trunc(std::string name) const;
+	std::string	_login;
+
+public:
+	Student(std::string login) :_login(login) {
+		std::cout << "Student " << this->_login << " was born." << std::endl;
+	}
+
+	~Student() {
+		std::cout << "Student " << this->_login << " died." << std::endl;
+	}
 };
 
-#endif
+int		main() {
+	Student 	bob = Student("Bob"); //on a stack
+	Student 	*ann = new Student("Ann"); //dynamically
+
+	delete ann;
+
+	return (0);
+}

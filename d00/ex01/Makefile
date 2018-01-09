@@ -6,7 +6,7 @@
 #    By: iprokofy <iprokofy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/08 14:57:28 by iprokofy          #+#    #+#              #
-#    Updated: 2018/01/08 15:45:03 by iprokofy         ###   ########.fr        #
+#    Updated: 2018/01/09 15:45:36 by iprokofy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,3 +25,5 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+
+re: fclean all
