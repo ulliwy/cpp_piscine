@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Human.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Ulliwy <Ulliwy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:02:08 by iprokofy          #+#    #+#             */
-/*   Updated: 2018/01/09 18:15:09 by Ulliwy           ###   ########.fr       */
+/*   Created: 2018/01/09 22:49:22 by Ulliwy            #+#    #+#             */
+/*   Updated: 2018/01/09 23:53:57 by Ulliwy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMAN_H
-#define HUMAN_H
+#include "Logger.hpp"
 
-#include "Brain.hpp"
+int main() {
+	Logger lg;
 
-class Human {
-public:
-	Human();
-	~Human();
-
-	std::string	identify() const;
-	const Brain	&getBrain() const;
-
-	const Brain brn;
-};
-
-#endif
+	lg.log("console", "hello");
+	lg.log("console", "logging to console");
+	lg.log("file", "hello");
+	lg.log("file", "logging to file");
+	lg.log("cmd", "no logging");
+}

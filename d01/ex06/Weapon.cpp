@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Human.hpp                                          :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Ulliwy <Ulliwy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:02:08 by iprokofy          #+#    #+#             */
-/*   Updated: 2018/01/09 18:15:09 by Ulliwy           ###   ########.fr       */
+/*   Created: 2018/01/09 18:18:34 by Ulliwy            #+#    #+#             */
+/*   Updated: 2018/01/09 18:54:17 by Ulliwy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMAN_H
-#define HUMAN_H
+#include <iostream>
+#include "Weapon.hpp"
 
-#include "Brain.hpp"
+Weapon::Weapon(std::string tp) : type(tp) {
+}
 
-class Human {
-public:
-	Human();
-	~Human();
+Weapon::~Weapon() {
+}
 
-	std::string	identify() const;
-	const Brain	&getBrain() const;
+const 	std::string &Weapon::getType() const {
+	return (this->type);
+}
 
-	const Brain brn;
-};
-
-#endif
+void	Weapon::setType(std::string tp) {
+	this->type = tp;
+}

@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Human.hpp                                          :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Ulliwy <Ulliwy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:02:08 by iprokofy          #+#    #+#             */
-/*   Updated: 2018/01/09 18:15:09 by Ulliwy           ###   ########.fr       */
+/*   Created: 2018/01/09 18:19:02 by Ulliwy            #+#    #+#             */
+/*   Updated: 2018/01/09 19:22:45 by Ulliwy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMAN_H
-#define HUMAN_H
+#include "HumanB.hpp"
+#include <iostream>
 
-#include "Brain.hpp"
+HumanB::HumanB(std::string name) : _name(name) {
+}
 
-class Human {
-public:
-	Human();
-	~Human();
+HumanB::~HumanB() {
+}
 
-	std::string	identify() const;
-	const Brain	&getBrain() const;
+void 	HumanB::attack() const {
+	std::cout << this->_name << " attacks with his "
+			<< (this->_wpn)->type << std::endl;
+}
 
-	const Brain brn;
-};
-
-#endif
+void	HumanB::setWeapon(Weapon &wpn) {
+	this->_wpn = &wpn;
+}

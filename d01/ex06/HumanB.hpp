@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Human.hpp                                          :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Ulliwy <Ulliwy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:02:08 by iprokofy          #+#    #+#             */
-/*   Updated: 2018/01/09 18:15:09 by Ulliwy           ###   ########.fr       */
+/*   Created: 2018/01/09 18:19:06 by Ulliwy            #+#    #+#             */
+/*   Updated: 2018/01/09 19:22:44 by Ulliwy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMAN_H
-#define HUMAN_H
+#ifndef HUMANB_H
+# define HUMANB_H
 
-#include "Brain.hpp"
+#include <iostream>
+#include "Weapon.hpp"
 
-class Human {
+class HumanB {
 public:
-	Human();
-	~Human();
+	HumanB(std::string name);
+	~HumanB();
 
-	std::string	identify() const;
-	const Brain	&getBrain() const;
+	void		setWeapon(Weapon &wpn);
+	void 		attack() const;
 
-	const Brain brn;
+private:
+	Weapon		*_wpn;
+	std::string	_name;
 };
 
 #endif

@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Human.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Ulliwy <Ulliwy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:02:08 by iprokofy          #+#    #+#             */
-/*   Updated: 2018/01/09 18:15:09 by Ulliwy           ###   ########.fr       */
+/*   Created: 2018/01/09 22:02:39 by Ulliwy            #+#    #+#             */
+/*   Updated: 2018/01/09 22:29:20 by Ulliwy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMAN_H
-#define HUMAN_H
+#include <iostream>
+#include "Human.hpp"
 
-#include "Brain.hpp"
+int		main() {
+	Human	me;
+	
+	me.action("meleeAttack", "target");
+	me.action("rangedAttack", "target");
+	me.action("intimidatingShout", "target");
 
-class Human {
-public:
-	Human();
-	~Human();
-
-	std::string	identify() const;
-	const Brain	&getBrain() const;
-
-	const Brain brn;
-};
-
-#endif
+	return (0);
+}

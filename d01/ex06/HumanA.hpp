@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Human.hpp                                          :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Ulliwy <Ulliwy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 15:02:08 by iprokofy          #+#    #+#             */
-/*   Updated: 2018/01/09 18:15:09 by Ulliwy           ###   ########.fr       */
+/*   Created: 2018/01/09 18:18:57 by Ulliwy            #+#    #+#             */
+/*   Updated: 2018/01/09 19:00:32 by Ulliwy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMAN_H
-#define HUMAN_H
+#ifndef HUMANA_H
+# define HUMANA_H
 
-#include "Brain.hpp"
+#include <iostream>
+#include "Weapon.hpp"
 
-class Human {
+class HumanA {
 public:
-	Human();
-	~Human();
+	HumanA(std::string name, Weapon &club);
+	~HumanA();
 
-	std::string	identify() const;
-	const Brain	&getBrain() const;
+	void attack() const;
 
-	const Brain brn;
+private:
+	std::string	_name;
+	Weapon		&_wpn;
 };
 
 #endif
