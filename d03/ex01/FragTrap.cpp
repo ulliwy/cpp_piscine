@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iprokofy <iprokofy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Ulliwy <Ulliwy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 11:24:23 by iprokofy          #+#    #+#             */
-/*   Updated: 2018/01/11 16:18:25 by iprokofy         ###   ########.fr       */
+/*   Updated: 2018/01/11 19:30:16 by Ulliwy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,15 @@ std::string	FragTrap::getName() const {
 }
 
 FragTrap 	&FragTrap::operator=(FragTrap const &rfs) {
-	this->_name = rfs.getName();
+	this->_name = rfs._name;
+	this->_hitPoints = rfs._hitPoints;
+	this->_maxHitPoints = rfs._maxHitPoints;
+	this->_energyPoints = rfs._energyPoints;
+	this->_maxEnergyPoints = rfs._maxEnergyPoints;
+	this->_level = rfs._level;
+	this->_meleeAttackDamage = rfs._meleeAttackDamage;
+	this->_rangedAttackDamage = rfs._rangedAttackDamage;
+	this->_armorDamageReduction = rfs._armorDamageReduction;
 	return *this;
 }
 

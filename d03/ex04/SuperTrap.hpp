@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   SuperTrap.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Ulliwy <Ulliwy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/11 16:03:29 by iprokofy          #+#    #+#             */
-/*   Updated: 2018/01/11 20:11:25 by Ulliwy           ###   ########.fr       */
+/*   Created: 2018/01/11 20:58:35 by Ulliwy            #+#    #+#             */
+/*   Updated: 2018/01/11 22:16:00 by Ulliwy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_H
-#define SCAVTRAP_H
+#ifndef SUPERTRAP_H
+#define SUPERTRAP_H
 
-#include <string>
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "NinjaTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class SuperTrap : public FragTrap, public NinjaTrap {
 public:
-	ScavTrap();
-	ScavTrap(std::string name);
-	ScavTrap(ScavTrap const &rfs);
-	~ScavTrap();
+	SuperTrap();
+	SuperTrap(std::string name);
+	SuperTrap(SuperTrap const &rfs);
+	~SuperTrap();
 
-	void		challengeNewcomer(std::string const &target) const;
+	void	rangedAttack(std::string const &target) const;
+	void	meleeAttack(std::string const &target) const;
 };
 
 #endif

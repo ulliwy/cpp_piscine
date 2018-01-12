@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   NinjaTrap.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Ulliwy <Ulliwy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/11 16:03:29 by iprokofy          #+#    #+#             */
-/*   Updated: 2018/01/11 20:11:25 by Ulliwy           ###   ########.fr       */
+/*   Created: 2018/01/11 20:14:55 by Ulliwy            #+#    #+#             */
+/*   Updated: 2018/01/11 20:46:18 by Ulliwy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_H
-#define SCAVTRAP_H
+#ifndef NINJATRAP_H
+#define NINJATRAP_H
 
 #include <string>
 #include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class NinjaTrap : public ClapTrap {
 public:
-	ScavTrap();
-	ScavTrap(std::string name);
-	ScavTrap(ScavTrap const &rfs);
-	~ScavTrap();
+	NinjaTrap();
+	NinjaTrap(std::string name);
+	NinjaTrap(NinjaTrap const &rfs);
+	~NinjaTrap();
 
-	void		challengeNewcomer(std::string const &target) const;
+	void		ninjaShoebox(FragTrap &rfs) const;
+	void		ninjaShoebox(NinjaTrap &rfs) const;
+	void		ninjaShoebox(ScavTrap &frs) const;
+	void		ninjaShoebox(ClapTrap &frs) const;
 };
 
 #endif

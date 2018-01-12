@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Ulliwy <Ulliwy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: iprokofy <iprokofy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/11 16:03:29 by iprokofy          #+#    #+#             */
-/*   Updated: 2018/01/11 20:11:25 by Ulliwy           ###   ########.fr       */
+/*   Created: 2018/01/11 11:24:23 by iprokofy          #+#    #+#             */
+/*   Updated: 2018/01/11 16:56:17 by iprokofy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_H
-#define SCAVTRAP_H
+#ifndef FRAGTRAP_H
+#define FRAGTRAP_H
 
-#include <string>
 #include "ClapTrap.hpp"
+#include <string>
 
-class ScavTrap : public ClapTrap {
+class FragTrap : public ClapTrap {
 public:
-	ScavTrap();
-	ScavTrap(std::string name);
-	ScavTrap(ScavTrap const &rfs);
-	~ScavTrap();
+	FragTrap();
+	FragTrap(std::string name);
+	FragTrap(FragTrap const &rfs);
+	~FragTrap();
 
-	void		challengeNewcomer(std::string const &target) const;
+	void		vaulthunter_dot_exe(std::string const & target);
+
 };
 
 #endif
