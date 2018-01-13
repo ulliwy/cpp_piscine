@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Sorcerer.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iprokofy <iprokofy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Ulliwy <Ulliwy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 12:14:29 by iprokofy          #+#    #+#             */
-/*   Updated: 2018/01/12 16:04:09 by iprokofy         ###   ########.fr       */
+/*   Updated: 2018/01/12 18:35:46 by Ulliwy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 class Sorcerer {
 public:
-	Sorcerer();
 	Sorcerer(std::string name, std::string title);
 	Sorcerer(Sorcerer const &rfs);
 	~Sorcerer();
@@ -34,6 +33,8 @@ public:
 private:
 	std::string	_name;
 	std::string	_title;
+
+	Sorcerer();
 };
 
 std::ostream 	&operator<<(std::ostream &o, Sorcerer const &rfs);

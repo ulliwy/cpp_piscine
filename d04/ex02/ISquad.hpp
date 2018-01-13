@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Victim.hpp                                         :+:      :+:    :+:   */
+/*   ISquad.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Ulliwy <Ulliwy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/12 12:14:29 by iprokofy          #+#    #+#             */
-/*   Updated: 2018/01/12 18:36:20 by Ulliwy           ###   ########.fr       */
+/*   Created: 2018/01/12 20:57:47 by Ulliwy            #+#    #+#             */
+/*   Updated: 2018/01/12 23:04:37 by Ulliwy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VICTIM_H
-#define VICTIM_H
+#ifndef ISQUAD_H
+#define ISQUAD_H
 
-#include <iostream>
+#include "ISpaceMarine.hpp"
 
-class Victim {
+class ISquad
+{
 public:
-	
-	Victim(std::string name);
-	Victim(Victim const &rfs);
-	virtual ~Victim();
-
-	Victim	&operator=(Victim const &rfs);
-
-	void		introduce() const;
-	virtual void 		getPolymorphed() const;
-
-	std::string	getName() const;
-	
-protected:
-	Victim();
-	std::string	_name;
+	virtual ~ISquad() {}
+	virtual int getCount() const = 0;
+	virtual ISpaceMarine* getUnit(int) const = 0;
+	virtual int push(ISpaceMarine*) = 0;
 };
-
-std::ostream 	&operator<<(std::ostream &o, Victim const &rfs);
 
 #endif

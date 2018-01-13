@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Peon.cpp                                           :+:      :+:    :+:   */
+/*   PowerFist.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Ulliwy <Ulliwy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/12 12:14:29 by iprokofy          #+#    #+#             */
-/*   Updated: 2018/01/12 18:39:04 by Ulliwy           ###   ########.fr       */
+/*   Created: 2018/01/12 18:16:30 by Ulliwy            #+#    #+#             */
+/*   Updated: 2018/01/12 20:43:03 by Ulliwy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Peon.hpp"
+#include "PowerFist.hpp"
 
-Peon::Peon() {
+PowerFist::PowerFist() : AWeapon("Power Fist", 8, 50) {
 }
 
-Peon::Peon(std::string name) : Victim(name) {
-	std::cout << "Zog zog." << std::endl;
-}
-
-Peon::Peon(Peon const &rfs) : Victim(rfs) {
+PowerFist::PowerFist(PowerFist const &rfs) : AWeapon(rfs) {
 	*this = rfs;
-	std::cout << "Zog zog." << std::endl;
-}
-Peon::~Peon() {
-	std::cout << "Bleuark..." << std::endl;
 }
 
-Peon &Peon::operator=(Peon const &rfs) {
+PowerFist::~PowerFist() {
+}
+
+PowerFist 	&PowerFist::operator=(PowerFist const &rfs) {
 	this->_name = rfs._name;
+	this->_damage = rfs._damage;
+	this->_APCost = rfs._APCost;
 	return *this;
 }
 
-void	Peon::getPolymorphed() const {
-	std::cout << this->_name << " has been turned into a pink pony !" << std::endl;
+void 	PowerFist::attack() const {
+	std::cout << "* pschhh... SBAM! *" << std::endl;
 }

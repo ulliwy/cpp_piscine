@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Victim.hpp                                         :+:      :+:    :+:   */
+/*   AWeapon.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Ulliwy <Ulliwy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/12 12:14:29 by iprokofy          #+#    #+#             */
-/*   Updated: 2018/01/12 18:36:20 by Ulliwy           ###   ########.fr       */
+/*   Created: 2018/01/12 18:15:59 by Ulliwy            #+#    #+#             */
+/*   Updated: 2018/01/12 18:47:10 by Ulliwy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VICTIM_H
-#define VICTIM_H
+#ifndef AWEAPON_H
+#define AWEAPON_H
 
 #include <iostream>
 
-class Victim {
-public:
-	
-	Victim(std::string name);
-	Victim(Victim const &rfs);
-	virtual ~Victim();
-
-	Victim	&operator=(Victim const &rfs);
-
-	void		introduce() const;
-	virtual void 		getPolymorphed() const;
-
-	std::string	getName() const;
-	
+class AWeapon {
 protected:
-	Victim();
 	std::string	_name;
-};
+	int			_damage;
+	int			_APCost;
 
-std::ostream 	&operator<<(std::ostream &o, Victim const &rfs);
+	AWeapon();
+
+public:
+	AWeapon(std::string const & name, int apcost, int damage);
+	AWeapon(AWeapon const &rfs);
+	virtual ~AWeapon();
+
+	AWeapon 	&operator=(AWeapon const &rfs);
+
+	std::string 	getName() const;
+	int 			getAPCost() const;
+	int 			getDamage() const;
+	virtual void 	attack() const = 0;
+};
 
 #endif

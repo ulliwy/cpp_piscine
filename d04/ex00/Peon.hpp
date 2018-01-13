@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Peon.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iprokofy <iprokofy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Ulliwy <Ulliwy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 12:14:29 by iprokofy          #+#    #+#             */
-/*   Updated: 2018/01/12 16:26:37 by iprokofy         ###   ########.fr       */
+/*   Updated: 2018/01/12 18:36:51 by Ulliwy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,16 @@
 
 class Peon : public Victim {
 public:
-	Peon();
 	Peon(std::string name);
 	Peon(Peon const &rfs);
-	~Peon();
+	virtual ~Peon();
 
 	Peon &operator=(Peon const &frs);
 
 	virtual void	getPolymorphed() const;
+
+private:
+	Peon();
 };
 
 #endif

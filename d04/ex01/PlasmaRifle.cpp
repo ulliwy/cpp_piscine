@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Peon.cpp                                           :+:      :+:    :+:   */
+/*   PlasmaRifle.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Ulliwy <Ulliwy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/12 12:14:29 by iprokofy          #+#    #+#             */
-/*   Updated: 2018/01/12 18:39:04 by Ulliwy           ###   ########.fr       */
+/*   Created: 2018/01/12 18:16:15 by Ulliwy            #+#    #+#             */
+/*   Updated: 2018/01/12 20:36:34 by Ulliwy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Peon.hpp"
+#include "PlasmaRifle.hpp"
 
-Peon::Peon() {
+PlasmaRifle::PlasmaRifle() : AWeapon("Plasma Rifle", 5, 21) {
 }
 
-Peon::Peon(std::string name) : Victim(name) {
-	std::cout << "Zog zog." << std::endl;
-}
-
-Peon::Peon(Peon const &rfs) : Victim(rfs) {
+PlasmaRifle::PlasmaRifle(PlasmaRifle const &rfs) : AWeapon(rfs) {
 	*this = rfs;
-	std::cout << "Zog zog." << std::endl;
-}
-Peon::~Peon() {
-	std::cout << "Bleuark..." << std::endl;
 }
 
-Peon &Peon::operator=(Peon const &rfs) {
+PlasmaRifle::~PlasmaRifle() {
+}
+
+PlasmaRifle 	&PlasmaRifle::operator=(PlasmaRifle const &rfs) {
 	this->_name = rfs._name;
+	this->_damage = rfs._damage;
+	this->_APCost = rfs._APCost;
 	return *this;
 }
 
-void	Peon::getPolymorphed() const {
-	std::cout << this->_name << " has been turned into a pink pony !" << std::endl;
+void 	PlasmaRifle::attack() const {
+	std::cout << "* piouuu piouuu piouuu *" << std::endl;
 }

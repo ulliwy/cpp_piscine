@@ -3,15 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   Sorcerer.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iprokofy <iprokofy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Ulliwy <Ulliwy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 12:14:29 by iprokofy          #+#    #+#             */
-/*   Updated: 2018/01/12 16:04:15 by iprokofy         ###   ########.fr       */
+/*   Updated: 2018/01/12 18:36:02 by Ulliwy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sorcerer.hpp"
 #include <iostream>
+
+Sorcerer::Sorcerer() {
+}
 
 Sorcerer::Sorcerer(std::string name, std::string title) : _name(name), _title(title) {
 	std::cout << this->_name << ", " << this->_title << ", is born!" << std::endl;

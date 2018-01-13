@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Victim.hpp                                         :+:      :+:    :+:   */
+/*   Enemy.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Ulliwy <Ulliwy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/12 12:14:29 by iprokofy          #+#    #+#             */
-/*   Updated: 2018/01/12 18:36:20 by Ulliwy           ###   ########.fr       */
+/*   Created: 2018/01/12 18:16:39 by Ulliwy            #+#    #+#             */
+/*   Updated: 2018/01/12 20:45:39 by Ulliwy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VICTIM_H
-#define VICTIM_H
+#ifndef ENEMY_H
+#define ENEMY_H
 
 #include <iostream>
 
-class Victim {
-public:
-	
-	Victim(std::string name);
-	Victim(Victim const &rfs);
-	virtual ~Victim();
-
-	Victim	&operator=(Victim const &rfs);
-
-	void		introduce() const;
-	virtual void 		getPolymorphed() const;
-
-	std::string	getName() const;
-	
+class Enemy {
 protected:
-	Victim();
-	std::string	_name;
-};
+	int			_hp;
+	std::string	_type;
+	
+	Enemy();
 
-std::ostream 	&operator<<(std::ostream &o, Victim const &rfs);
+public:
+	Enemy(int hp, std::string const & type);
+	Enemy(Enemy const &rfs);
+	virtual ~Enemy();
+
+	Enemy 	&operator=(Enemy const &frs);
+
+	std::string		getType() const;
+	int 			getHP() const;
+	virtual void 	takeDamage(int);
+};
 
 #endif
