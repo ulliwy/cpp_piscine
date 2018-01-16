@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iprokofy <iprokofy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Ulliwy <Ulliwy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 15:57:54 by iprokofy          #+#    #+#             */
-/*   Updated: 2018/01/15 16:12:52 by iprokofy         ###   ########.fr       */
+/*   Updated: 2018/01/15 19:16:04 by Ulliwy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,23 @@
 #define FORM_H
 
 #include <iostream>
+#include <exception>
+
+class Bureaucrat;
 
 class Form {
 public:
 	Form();
-	Form(std::string name, bool signed, int signGrade, int execGrade);
+	Form(std::string name, int signGrade, int execGrade);
 	Form(Form const &rfs);
-	~Form();
+	virtual ~Form();
 
 	Form &operator=(Form const &rfs);
+	std::string getName() const;
+	bool getSigned() const;
+	int getSignGrade() const;
+	int getExecGrade() const;
+	void beSigned(Bureaucrat const &bure);
 
 	class GradeTooHighException : public std::exception {
 	public:
@@ -45,10 +53,12 @@ public:
 	};
 
 private:
-	std:string const _name;
+	std::string const _name;
 	bool _signed;
 	int const _signGrade;
 	int const _execGrade;
-}
+};
+
+std::ostream &operator<<(std::ostream &o, Form const &rfs);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: Ulliwy <Ulliwy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 12:35:35 by iprokofy          #+#    #+#             */
-/*   Updated: 2018/01/15 18:20:21 by Ulliwy           ###   ########.fr       */
+/*   Updated: 2018/01/15 20:31:14 by Ulliwy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ public:
 	std::string getName() const;
 	int getGrade() const;
 	void signForm(Form &fm);
+	void executeForm(Form const & form);
 
 	class GradeTooHighException : public std::exception {
 	public:

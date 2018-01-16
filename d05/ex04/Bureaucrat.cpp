@@ -6,7 +6,7 @@
 /*   By: Ulliwy <Ulliwy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 12:35:35 by iprokofy          #+#    #+#             */
-/*   Updated: 2018/01/15 18:43:18 by Ulliwy           ###   ########.fr       */
+/*   Updated: 2018/01/15 22:05:32 by Ulliwy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,16 @@ void Bureaucrat::signForm(Form &fm) {
 	} else {
 		fm.beSigned(*this);
 		std::cout << _name << " signs form " << fm.getName() << std::endl;
+	}
+}
+
+void Bureaucrat::executeForm(Form const & form) {
+	if (!form.getSigned()) {
+		std::cout << "Form is not signed." << std::endl;
+	} else if (form.getExecGrade() < getGrade()) {
+		throw Form::GradeTooLowException();
+	} else {
+		form.execute(*this);
 	}
 }
 

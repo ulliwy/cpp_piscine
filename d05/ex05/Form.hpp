@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Ulliwy <Ulliwy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/15 12:35:35 by iprokofy          #+#    #+#             */
-/*   Updated: 2018/01/15 18:20:21 by Ulliwy           ###   ########.fr       */
+/*   Created: 2018/01/15 15:57:54 by iprokofy          #+#    #+#             */
+/*   Updated: 2018/01/15 19:18:52 by Ulliwy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_H
-#define BUREAUCRAT_H
+#ifndef FORM_H
+#define FORM_H
 
 #include <iostream>
 #include <exception>
 
-class Form;
+class Bureaucrat;
 
-class Bureaucrat {
+class Form {
 public:
-	Bureaucrat();
-	Bureaucrat(std::string name, int grade);
-	Bureaucrat(Bureaucrat const &rfs);
-	virtual ~Bureaucrat();
+	Form();
+	Form(std::string name, int signGrade, int execGrade);
+	Form(Form const &rfs);
+	virtual ~Form();
 
-	Bureaucrat &operator=(Bureaucrat const &rfs);
-	void operator++(int);
-	void operator--(int);
+	Form &operator=(Form const &rfs);
 	std::string getName() const;
-	int getGrade() const;
-	void signForm(Form &fm);
+	bool getSigned() const;
+	int getSignGrade() const;
+	int getExecGrade() const;
+	void beSigned(Bureaucrat const &bure);
+	virtual void execute(Bureaucrat const & executor) const = 0;
 
 	class GradeTooHighException : public std::exception {
 	public:
@@ -54,9 +55,11 @@ public:
 
 private:
 	std::string const _name;
-	int _grade;
+	bool _signed;
+	int const _signGrade;
+	int const _execGrade;
 };
 
-std::ostream &operator<<(std::ostream &o, Bureaucrat const &rfs);
+std::ostream &operator<<(std::ostream &o, Form const &rfs);
 
 #endif

@@ -6,12 +6,15 @@
 /*   By: Ulliwy <Ulliwy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 12:35:35 by iprokofy          #+#    #+#             */
-/*   Updated: 2018/01/15 18:55:18 by Ulliwy           ###   ########.fr       */
+/*   Updated: 2018/01/15 20:33:13 by Ulliwy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main() {
 	int i = 0;
@@ -66,35 +69,45 @@ int main() {
 	}
 
 	std::cout << "-------" << std::endl;
-	try {Form a("A", -1, 100);}
-	catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
-	}
-	try {Form b("B", 300, 100);}
-	catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
-	}
-	try {Form c("C", 100, -1);}
-	catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
-	}
-	try {Form a("A", 100, 1000);}
-	catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
-	}
-
+	ShrubberyCreationForm tree("tree");
+	Bureaucrat boba("Boba", 137);
+	tree.execute(boba);
 	std::cout << "-------" << std::endl;
-	Form aa("AA", 3, 1);
-	Bureaucrat bob("Bob", 4);
+	Bureaucrat bob("Bob", 143);
 	i = 3;
 	while (i > 0) {
 		std::cout << bob;
 		try {
-			bob.signForm(aa);
+			bob.signForm(tree);
+			tree.execute(bob);
 		} catch (std::exception &e) {
 			std::cout << e.what() << std::endl;
 		}
 		bob++;
 		i--;
 	}
+	tree.execute(boba);
+	RobotomyRequestForm robo("Robo");
+	srand(time_t());
+	robo.beSigned(harry);
+	robo.execute(harry);
+	robo.execute(harry);
+	robo.execute(harry);
+	robo.execute(harry);
+	robo.execute(harry);
+
+	PresidentialPardonForm pardo("Pardo");
+	Bureaucrat gaga("Gaga", 6);
+	pardo.execute(bob);
+	gaga.signForm(pardo);
+	std::cout << "-------" << std::endl;
+	std::cout << gaga;
+	try {
+		pardo.execute(gaga);
+	} catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
+	gaga++;
+	gaga.executeForm(pardo);
+
 }
