@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iprokofy <iprokofy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Ulliwy <Ulliwy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 15:22:08 by iprokofy          #+#    #+#             */
-/*   Updated: 2018/01/16 16:34:25 by iprokofy         ###   ########.fr       */
+/*   Updated: 2018/01/16 19:33:56 by Ulliwy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include <cstdlib>
 #include <cctype>
 #include <exception>
+#include <iomanip>
+#include <limits>
 
 int main(int argc, char **argv)
 {
@@ -22,10 +24,13 @@ int main(int argc, char **argv)
 		return 1;
 	}
 	std::string str = argv[1];
-	std::cout << str;
 
 	std::cout << "char: ";
 	try {
+		if (std::stoi(str) < std::numeric_limits<char>::min())
+			throw std::exception();
+		else if (std::stoi(str) > std::numeric_limits<char>::max())
+			throw std::exception();
 		char c = static_cast<char>(std::stoi(str));
 		if (isprint(c))
 			std::cout << "'" << c << "'" << std::endl;
@@ -37,6 +42,10 @@ int main(int argc, char **argv)
 	
 	std::cout << "int: ";
 	try {
+		if ((std::stol(str) < std::numeric_limits<int>::min()))
+			throw std::exception();
+		if ((std::stol(str) > std::numeric_limits<int>::max()))
+			throw std::exception();
 		int i = static_cast<int>(std::stoi(str));
 		std::cout << i << std::endl;
 	} catch (std::exception &e) {
@@ -45,14 +54,22 @@ int main(int argc, char **argv)
 
 	std::cout << "float: ";
 	try {
+		if ((std::stod(str) < std::numeric_limits<float>::min()))
+			throw std::exception();
+		if ((std::stod(str) > std::numeric_limits<float>::max()))
+			throw std::exception();
 		float f = static_cast<float>(std::stof(str));
-		std::cout << f << "f" << std::endl;
+		std::cout << std::setprecision(1) << std::fixed << f << "f" << std::endl;
 	} catch (std::exception &e) {
 		std::cout << "impossible" << std::endl;
 	}
 
 	std::cout << "double: ";
 	try {
+		if ((std::stold(str) < std::numeric_limits<double>::min()))
+			throw std::exception();
+		if ((std::stold(str) > std::numeric_limits<double>::max()))
+			throw std::exception();
 		double d = static_cast<double>(std::stod(str));
 		std::cout << d << std::endl;
 	} catch (std::exception &e) {
