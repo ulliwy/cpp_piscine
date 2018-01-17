@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Ulliwy <Ulliwy@student.42.fr>              +#+  +:+       +#+        */
+/*   By: iprokofy <iprokofy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 20:36:09 by Ulliwy            #+#    #+#             */
-/*   Updated: 2018/01/15 20:53:57 by Ulliwy           ###   ########.fr       */
+/*   Updated: 2018/01/16 11:30:23 by iprokofy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ class Intern {
 public:
 	Intern();
 	Intern(Intern const &rfs);
-	~Intern();
+	virtual ~Intern();
 
 	Intern &operator=(Intern const &rfs);
 	Form *makeForm(std::string name, std::string target);
