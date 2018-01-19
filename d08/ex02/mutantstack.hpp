@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mutantstack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iprokofy <iprokofy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Ulliwy <Ulliwy@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/18 13:58:27 by iprokofy          #+#    #+#             */
-/*   Updated: 2018/01/18 15:46:42 by iprokofy         ###   ########.fr       */
+/*   Updated: 2018/01/18 20:57:38 by Ulliwy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,50 +14,30 @@
 #include <iterator>
 #include <stack>
 
-template<typename T>
-class MutantStack {
+template<typename T, typename Container = std::deque<T> >
+class MutantStack : public std::stack<T, Container> {
 public:
-	MutantStack<T>() : std::stack<T> {
-	}
-	MutantStack(MutantStack const &rfs) {
-		_st = rfs._st;
-	}
-	~MutantStack() {
+	typedef typename std::stack<T, Container>::container_type::iterator iterator;
+	
+	MutantStack() {
 	}
 
-	MutantStack &operator=(MutantStack const&rfs) {
-		_st = rfs._st;
+	MutantStack(MutantStack const &rfs) : std::stack<T, Container>(rfs) {
+	}
+	
+	~MutantStack(void) {
+	}
+	
+	MutantStack &operator=(MutantStack const &rfs) {
+		this->c = rfs.c;
 		return *this;
+	};
+
+	iterator	begin() {
+		return std::stack<T, Container>::c.begin();
 	}
 
-	bool empty() const {
-		return (_st.empty());
+	iterator	end() {
+		return std::stack<T, Container>::c.end();
 	}
-
-	ssize_t size() const {
-		return (_st.size());
-	}
-
-	T &top() const {
-		return (_st.front());
-	}
-
-	void push(T element) {
-		_st.push_front(element);
-	}
-
-	void pop() {
-		_st.pop_front();
-	}
-
-	std::iterator begin() const {
-		return (_st.begin());
-	}
-
-	iterator end() const {
-		return (_st.end());
-	}
-
-private:
-	std::list<T> _st;
 };
